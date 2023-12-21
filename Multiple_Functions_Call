@@ -13,3 +13,90 @@ R308_L19_Input_Triangle_Points_TBG();
 % -  R308_L19_Printing_Results
 %            V
 % -        Output
+
+__________________________________________________________________________________________
+
+
+%CAll multiple functions step 2
+% Input for coordinates:
+
+function [ Ax, Ay, Bx, By, Cx, Cy ] = R308_L19_Input_Triangle_Points_TBG()
+
+format short
+
+pause(1)
+
+
+A(1,1) = input('Please enter x-coordinates for point A: ');
+A(1,2) = input('Please enter y-coordinates for point A: ');
+B(1,1) = input('Please enter x-coordinates for point B: ');
+B(1,2) = input('Please enter y-coordinates for point B: ');
+C(1,1) = input('Please enter x-coordinates for point C: ');
+C(1,2) = input('Please enter y-coordinates for point C: ');
+
+Ax = A(1,1);
+Ay = A(1,2); 
+Bx = B(1,1); 
+By = B(1,2);
+Cx = C(1,1); 
+Cy = C(1,2);
+
+
+
+R308_L19_Angles_TBG( Ax,Ay,Bx,By,Cx,Cy );
+
+__________________________________________________________________________________________
+
+% Calling multiple functions step 3
+% Angles Script
+
+function [A, B, C] = R308_L19_Angles_TBG( Ax,Ay,Bx,By,Cx,Cy )
+
+
+distanceAB = sqrt( ((Ax-Bx)^ 2) + ((Ay-By)^2) ); %side c
+distanceAC = sqrt( ((Ax-Cx)^ 2) + ((Ay-Cy)^2)   ); %side b
+distanceBC = sqrt( ((Bx-Cx)^ 2) + ((By-Cy)^2) ); %side a
+
+%easy side length variables
+a = distanceBC;
+b = distanceAC;
+c = distanceAB;
+
+
+%x = (distanceBC + distanceAC + distanceAB) / 2;
+%perimeter = distanceBC + distanceAC + distanceAB;
+%area = sqrt( x * (x-distanceBC) * (x-distanceAC) * (x-distanceAB) );
+
+
+
+
+
+%Angles of the triangle
+A = acosd(    (-(a^2)+(b^2)+(c^2))/(2 * b * c)   ); %Angle of A
+B = acosd(    (-(b^2)+(a^2)+(c^2))/(2 * a * c)   ); %Angle of B
+C = acosd(    (-(c^2)+(b^2)+(a^2))/(2 * b * a)   ); %Angle of C
+
+
+R308_L19_Printing_Results_TBG( Ax, Ay, Bx, By, Cx, Cy, A, B, C);
+__________________________________________________________________________________________
+
+% Printing function
+
+function [ ] = R308_L19_Printing_Results_TBG( Ax, Ay, Bx, By, Cx, Cy, A, B, C)
+
+fprintf("\n ")
+fprintf("1234567890123456789012345678901234567890 \n\n")
+
+fprintf("Point    X-Coordinate   Y-Coordinate\n\n")
+
+fprintf("  A             %0.2f          %0.2f\n",Ax,Ay)
+fprintf("  B             %0.2f          %0.2f\n",Bx,By)
+fprintf("  C             %0.2f          %0.2f\n\n",Cx,Cy)
+
+fprintf("  Angle A = %0.2f degrees\n",A)
+fprintf("  Angle B = %0.2f degrees\n",B)
+fprintf("  Angle C = %0.2f degrees\n",C)
+
+
+end
+__________________________________________________________________________________________
