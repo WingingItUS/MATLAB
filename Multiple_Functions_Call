@@ -1,0 +1,15 @@
+% This is the Coordinate Input script R308 L19 Multi function
+% This Script will first ask the user for coordinates for a triangle
+% then return the entered coordinates and the calculated angles in degrees
+clc
+clear
+R308_L19_Input_Triangle_Points_TBG();
+
+%Pathway:
+% -  R308_Input_Triangle_Points
+%            V
+% -  R308_L19_Angles
+%            V
+% -  R308_L19_Printing_Results
+%            V
+% -        Output
