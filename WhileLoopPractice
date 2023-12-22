@@ -1,0 +1,27 @@
+% L20 TBG  R308
+% While loop
+function [] = R308_L20_Summation_TBG()
+clc
+
+target = 3080;
+pause(1)  %Graphical error reduction for online matlab
+C = 1; %Initial count for N
+sum = 0;
+
+while target >= sum
+   
+    sum = sum + C^(3/7);
+    finalsum = sum; % used to get sum of numbers before increment.
+    C = C + 1;
+   
+end
+
+ C = C-1; % backtrack N to find the largest integer nearest our limit
+ 
+% check = C+finalsum;
+ 
+ fprintf('Target    = %0.0f\n',target)
+ fprintf('Total     = %0.2f\n',finalsum)
+ fprintf('C         = %0.0f\n',C)
+ %fprintf('Check     = %0.2f\n',check)
+end
