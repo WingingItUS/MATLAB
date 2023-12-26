@@ -1,0 +1,34 @@
+% R308 Derivitive  L22
+clc
+clear
+%TEST
+ID = 308;
+
+R = ID / 100;
+T = ID / 1000;
+
+
+syms x
+
+A = subs(diff(x ^ 2),x,R); % CORRECT 1
+
+B = subs(diff(x^2,2),x,R); % CORRECT 2
+
+C = subs( diff( ((1+x^3)/x)),x,T); %CORRECT 3
+
+D = subs( diff( ((1+x^3)/x),2),x,R); %CORRECT 4
+
+E = subs( diff( exp(1+x)),x,T);
+
+F = double(int(x^3 + 5, x, 0 , R));
+
+G = double(int(10 / (1+x^2), x, T , R));
+
+Checker = A+B+C+D+E+F+G;
+
+fprintf("A   =    %0.3f\n", A)
+fprintf("B   =    %0.3f\n", B)
+fprintf("C   =    %0.3f\n", C)
+fprintf("D   =    %0.3f\n", D)
+fprintf("E   =    %0.3f\n", E)
+fprintf("F   =    %0.3f\n", F)
