@@ -1,0 +1,127 @@
+clc
+format rat
+Eigen = 0;
+
+% A = [5-x,4;4,5-x]
+% det(A)
+% rref([8,4,-8,0;4,2,-4,0;-8,-4,8,0])
+ % e = Eigen*eye(2);
+ % TwobyTwo = [9,0;0,0];
+ % res = TwobyTwo - e
+
+ %  e = Eigen*eye(3);
+ % ThreebyThree = [6,-4,-2;-4,6,-2;-2,-2,9];
+ % res = ThreebyThree - e;
+ % 
+ % V1 = [-1;1;0]; 
+ % Y2 = [-1/2;0;1];
+ % 
+ % V2 = Y2 - ((dot(Y2,V1)/dot(V1,V1))*V1)
+ % 
+ % NormalV2 = (1/sqrt(V2(1,1)^2 + V2(2,1)^2 + V2(3,1)^2)) * V2
+ % NormalV1 = 
+
+ % e = Eigen*eye(4);
+ % FourbyFour = [-1,2,0,0;
+ %               -2,3,0,0;
+ %               0,0,-1,2;
+ %               0,0,4,-3];
+ % res = FourbyFour - e;
+
+
+%DET = det(FourbyFour);
+
+
+  % DET = det(res);
+  % RREF = rref(res);
+
+
+
+%disp(z)
+ % disp(res)
+ % disp(RREF)
+ % disp(DET)
+
+
+
+% Q = [1/2,-1/2,0,1/2,1/2;-1/sqrt(11),0,3/sqrt(11),1/sqrt(11),0;2/sqrt(47),5/sqrt(47),1/sqrt(47),-1/sqrt(47),4/sqrt(47)]
+% 
+% A = [1,3,5;-1,-4,1;0,3,4;1,5,4;1,4,8];
+% 
+% 
+% R = Q*A
+
+
+
+
+
+
+% Q = [2/7,5/7,2/7,4/7;-5/7,2/7,-4/7,2/7];
+% A = [2,-3;5,7;2,-2;4,6];
+% 
+% R = Q * A
+% E = [6;2;6;-4] - (-2/4).*[-1;1;1;1]-(3/4).*[2;-2;2;2]
+% 
+% 
+% dot([2;-2;2;2],[2;-2;2;2])
+
+%FIND A LEAST SQUARES SOLUTION: 
+syms x
+ A = [sqrt(6),0;1,sqrt(6)];
+% b = [1;2;-3;1];
+ ATA = A' * A
+
+
+ ATAE = [2-x,3;3,2-x]
+ abc = det(ATAE)
+
+
+
+a=1;
+b= -13;
+c= 36;
+
+QuadraticPlus = ((-b)+sqrt(b^2 - 4*a*c))/(2*a)
+QuadraticMinus = ((-b)-sqrt(b^2 - 4*a*c))/(2*a)
+% DetATA = det(ATA)
+% ATB = A' * b
+% xhat = ATA^-1 * ATB
+% 
+% %Describe all least squares solutions homework 13
+% oh = [ATA, ATB]
+% 
+% generalform = rref(oh)
+
+
+% SVD
+E1 = QuadraticPlus;
+E2 = QuadraticMinus;
+sig1 = sqrt(E1);
+sig2 = sqrt(E2);
+
+Eigen1 = rref((ATA - E1*eye(2)))
+Eigen2 = rref((ATA - E2*eye(2)))
+sv1 = Eigen1 .* Eigen1;       %the vector with elements 
+sv2 = Eigen2 .* Eigen2;       % as square of v's elements
+dp1 = sum(sum(sv1));
+dp2 = sum(sum(sv2));         % sum of squares -- the dot product
+mag1 = sqrt(dp1);
+mag2 = sqrt(dp2);
+
+v1 = (1/mag1) *Eigen1 
+v2 = (1/mag2) *Eigen2
+
+
+u1 =  (1/sqrt(80)) * A * (1/sqrt(1.25)) * [1/2;1]
+u2 =  (1/sqrt(5))* A * (1/sqrt(5)) * [-2;1]
+
+V = [-1,1;1,1]'
+% Spectral decomposition
+
+% u1 = [1/sqrt(2);0;1/sqrt(2)];
+% u2 = [-1/sqrt(18);4/sqrt(18);1/sqrt(18)];
+% u3 = [-2/3;-1/3;2/3];
+% 
+% A = u1*u1'
+% B = u2*u2'
+% C = u3*u3'
