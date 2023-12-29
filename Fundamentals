@@ -44,4 +44,41 @@ ylabel("Price (Hours Worked to Earn One Liter)")
 legend("Australia","Germany","Mexico","Canada",...
     "Location","northwest")
 
+%SECTION 2%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+Task 1
+Create a row vector named x that starts at 5, ends at 15, and whose elements are separated by 1.
+x = 5:1:15
+
+
+Task 2
+Create a variable named y that contains the row vector shown below.
+ 3  5  7  9  11 
+y = 3:2:11
+
+
+Task 3
+Create a row vector named z that starts at 5, ends at 1, and whose elements are spaced by -1
+z = 5:-1:1
+
+Task 4
+Create a row vector named A that starts at 0, ends at 12 and whose elements are spaced by 2.5
+A = 0:2.5:12
+
+Task 5
+Create a row vector named B that starts at 0, ends at 1 and contains 90 evenly-spaced elements.
+B = linspace(0,1,90)
+
+%For linspace = (start,end,# of instances)
+
+Task 6
+Create a row vector named C that starts at 3*pi, ends at -pi and contains 20 evenly-spaced elements.
+C = linspace(3*pi,-pi,20)
+
+Further Practice
+Try creating a vector using linspace that contains just 1 element and that starts from 0 and ends at 10.
+Alternatively, try using the colon operator to create a vector that starts at 0, ends at 10, and has a spacing of 15.
+
+FP1 = linspace(0,10,1)
+FP2 = 0:11/15:10
 
