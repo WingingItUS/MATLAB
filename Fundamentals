@@ -1,0 +1,47 @@
+%Load data
+load gCosts
+
+%Convert prices
+%Convert the prices from USD/gallon to USD/liter using the conversion factor saved in the variable gal2lit.
+gal2lit = 0.2642;
+Australia = gal2lit*Australia;
+Germany = gal2lit*Germany;
+Mexico = gal2lit*Mexico;
+Canada = gal2lit*Canada;
+
+%Plot results
+%Plot the converted prices for the years 1990 to 2008.
+plot(Year,Australia,"*--")
+hold on
+plot(Year,Germany,"*--")
+plot(Year,Mexico,"*--")
+plot(Year,Canada,"*--")
+hold off
+
+%Annotate the plot
+title("International Gasoline Prices")
+xlabel("Year")
+ylabel("Price (USD/L)")
+legend("Australia","Germany","Mexico","Canada",...
+    "Location","northwest")
+
+%Convert prices
+AustraliaH = Australia/hourlyAus
+GermanyH = Germany/hourlyGer
+MexicoH = Mexico/hourlyMex
+CanadaH = Canada/hourlyCan
+
+plot(Year,AustraliaH)
+hold on
+plot(Year,GermanyH)
+plot(Year,MexicoH)
+plot(Year,CanadaH)
+hold off
+
+title("International Gasoline Prices")
+xlabel("Year")
+ylabel("Price (Hours Worked to Earn One Liter)")
+legend("Australia","Germany","Mexico","Canada",...
+    "Location","northwest")
+
+
