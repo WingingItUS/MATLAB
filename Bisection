@@ -1,0 +1,80 @@
+clc
+ clear
+%PROBLEM 1
+%Bisection to find root
+%  Xl = 0.975;
+%  Xu = 1.056;
+%  FL = (Xl^10)-1;
+%  FU = (Xu^10)-1;
+%  Xr = (Xl+Xu)/2;
+%  FR= (Xr^10)-1;
+%  Check = FR*FL;
+% Rold = 1.056;
+% Rnew = Xr;
+% error = abs((Rnew-Rold)/Rnew)*100 
+% 
+%  if Check < 0 
+%     sign =  '-';
+%     adjust = "Xr = XU";
+% 
+% else 
+%     sign = '+' ;
+%     adjust = "Xr = XL";
+%     % error = (abs((FR-Xr)/FR))*100;
+% end
+% 
+% fprintf("  XL     XU      FL      FU      Xr     FR   Sign  Adjust  \n")
+% fprintf(" %0.3f  %0.3f  %0.3f  %0.3f  %0.3f  %0.3f   %c    %s  ",Xl,Xu,FL,FU,Xr,FR,sign,adjust)
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%PROBLEM 2
+g = 9.81;
+m = 95;
+t = 9;
+V = 46;
+
+ Xl = 0.387;
+ Xu = 0.406;
+ FL = (sqrt((g*m)/Xl))* (tanh(sqrt((g*Xl)/m)*t)) - V;
+ FU = (sqrt((g*m)/Xu))* (tanh(sqrt((g*Xu)/m)*t)) - V;
+ Xr = (Xl+Xu)/2;
+ FR= (sqrt((g*m)/Xr))* (tanh(sqrt((g*Xr)/m)*t)) - V;
+ Check = FR*FL;
+Rold = 0.406;
+Rnew = Xr;
+error = abs((Rnew-Rold)/Rnew)*100 
+
+ if Check < 0 
+    sign =  '-';
+    adjust = "Xr = XU";
+    
+else 
+    sign = '+' ;
+    adjust = "Xr = XL";
+    % error = (abs((FR-Xr)/FR))*100;
+end
+
+fprintf("  XL     XU      FL      FU      Xr     FR   Sign  Adjust  \n")
+fprintf(" %0.3f  %0.3f  %0.3f  %0.3f  %0.3f  %0.3f   %c    %s  ",Xl,Xu,FL,FU,Xr,FR,sign,adjust)
+
+
+
+
+
+
+
+
+
+
+% syms x
+% porblem = x^10-1;
+% 
+% InitialLower = input("Please Enter the initial Lower limit"); 
+% InitialUpper = input("Please Enter the initial Upper limit");
+%Need XrNew and XrOld placeholders for percent check
+%Percenterror = abs((XrNew-XrOld)/XrNew) * 100;
+%Can make loop and if statements
+% If Check is positive Change Xl -> Xr
+% If check is negative Change Xu -> Xr
