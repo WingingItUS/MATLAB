@@ -1,0 +1,73 @@
+
+%Newton Rahpson Method
+clc 
+clear
+syms x
+
+theta   = 30;
+v       = 20;
+y       = 2;
+g       = 9.81;
+
+
+
+initialx= 25;            %Place initial value here
+% Function = exp(-x)-x;   %place function to calculate here
+
+Function = (tand(theta)*x) - (g*x^2/(2*(v^2)*(cosd(theta)^2)))+y;
+px = initialx;
+
+i=0;                                     %Set boundary for repititions 
+fprintf("i    x     xi     fx      fxp      ea  \n")    %print title names
+ while i < 5
+  fx  = Function;
+  fxp = diff(fx);                    %Take derivative of original function
+
+fx  =vpa(subs(fx,x,px));                 %Calculate function, respect to initial value
+fxp = vpa(subs(fxp,x,px));               %Calculate Derivative of func, respec to x
+
+xi = px - (fx/fxp);                      %Calculate the next root iteration
+
+ea = abs((xi-px)/xi) * 100;              %Calculate percent error
+
+fprintf("%0.0f  %0.3f %0.4f   %0.3f   %0.3f   %0.3f%%\n",i,px,xi,fx,fxp,ea)
+ px = xi;                                %Associate new value of root for reevaluation
+ i=i+1;
+ end
+
+
+ %%%%
+
+ % Optimized 
+% 
+% syms x
+% 
+% initialx= 25;            %Place initial value here
+% theta   = 30;
+% v       = 20;
+% y       = 2;
+% g       = 9.81;
+% 
+% Function = (tand(theta)*x) - (g/(2*(v^2)*(cosd(theta)^2)))*(x^2)+y;   %place function to calculate here
+% px = initialx;
+% i=0;                                     %Set boundary for repititions 
+% fprintf("i    x     xi     fx      fxp      fxpp     ea  \n")    %print title names
+%  while i < 5
+% 
+% fx  = Function;
+% fxp = diff(fx);                         %Take derivative of original function
+% fxpp = diff(fxp);
+% 
+% fx  =vpa(subs(fx,x,px));                 %Calculate function, respect to initial value
+% fxp = vpa(subs(fxp,x,px));               %Calculate Derivative of func, respec to x
+% 
+% fxpp = vpa(subs(fxpp,x,px));
+% 
+% xi = px - (fxp/fxpp);                      %Calculate the next root iteration
+% 
+% ea = abs((xi-px)/xi) * 100;              %Calculate percent error
+% 
+% fprintf("%0.0f  %0.3f %0.4f   %0.3f     %0.3f   %0.3f   %0.3f%%\n",i,px,xi,fx,fxp,fxpp,ea)
+%  px = xi;                                %Associate new value of root for reevaluation
+%  i=i+1;
+%  end
