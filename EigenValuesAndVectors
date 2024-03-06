@@ -1,0 +1,68 @@
+%% ME-Analysis Assignment 5 AUSTIN DAVENPORT         Last Updated: 3/5/24
+% Eigen Values and Vectors
+clear
+clc
+format short
+
+%% Deliverable 1
+DRIVER =[ 1 1 -2;
+         -1 2 1;
+          0 1 -1];
+syms L
+EigenMatrixL = [L 0 0;
+                0 L 0;
+                0 0 L];
+
+%% Deliverable 2
+EigenAugmented = DRIVER - EigenMatrixL;  %coeficients minus eigen symbol
+
+%% Deliverable 3
+EigenPoly = det(EigenAugmented);
+
+%% Deliverable 4
+EigenSolve = solve(EigenPoly, L);
+
+%% Deliverable 5
+AugmentedE1 = subs(EigenAugmented,L,EigenSolve(1));
+AugmentedE2 = subs(EigenAugmented,L,EigenSolve(2));
+AugmentedE3 = subs(EigenAugmented,L,EigenSolve(3));
+
+%% Deliverable 6
+RREFA1 = rref(AugmentedE1);
+RREFA2 = rref(AugmentedE2);
+RREFA3 = rref(AugmentedE3);
+
+EigenVector1 = RREFA1(:,3);
+EigenVector2 = RREFA2(:,3);
+EigenVector3 = RREFA3(:,3);
+
+%% Deliverable 7
+% *Outputs* 
+fprintf('Coeficient matrix:\n')                         %1
+disp(DRIVER)
+
+fprintf('Coeficient minus Eigen symbol matrix:\n')      %2
+disp(EigenAugmented)
+
+fprintf('Eigen Symbol Factored Polynomial:\n')          %3
+disp(EigenPoly)
+
+fprintf('Solved Eigen Values:\n')                       %4
+disp(EigenSolve)
+
+fprintf('Augmented Matricies using Eigen Values:\n')    %5
+disp('Augmented 1')
+disp(AugmentedE1)
+disp('Augmented 2')
+disp(AugmentedE2)
+disp('Augmented 3')
+disp(AugmentedE3)
+
+fprintf('Eigen Vectors:\n')                             %6,7
+disp('Eigen Vector 1')
+disp(EigenVector1)
+disp('Eigen Vector 2')
+disp(EigenVector2)
+disp('Eigen Vector 3')
+disp(EigenVector3)
+
