@@ -5,6 +5,7 @@ clc
 format short
 
 %% Deliverable 1
+% Change this matrix to original Augmented Matrix
 DRIVER =[ 1 1 -2;
          -1 2 1;
           0 1 -1];
