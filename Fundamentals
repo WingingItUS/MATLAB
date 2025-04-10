@@ -81,6 +81,61 @@ Alternatively, try using the colon operator to create a vector that starts at 0,
 
 FP1 = linspace(0,10,1)
 FP2 = 0:11/15:10
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%Array Creation Functions
+%Instructions are in the task pane to the left. Complete and submit each task one at a time.
+
+TASK 1
+Create an array named x that has 3 rows and 4 columns and where every element is the number 1.
+x = ones(3,4)
+
+
+TASK 2
+Create an array named x that has 3 rows and 4 columns and where every element is the number 5.
+x = ones(3,4)*5
+
+TASK 3
+Create a 100-by-1 vector of uniformly distributed random numbers with the name xU.
+xU = rand(100,1)
+
+TASK 4
+Create a 100-by-1 vector of normally distributed random numbers with the name xN.
+xN = randn(100,1)
+
+
+TASK 5
+Create a 100-by-1 vector of uniformly distributed random integers with a maximum value of 10. Name the vector xI.
+xI = randi(10,100,1)
+
+
+TASK 6
+Use randi to create a 100-by-1 vector of uniformly distributed random integers between 11 and 20. Name the vector xI2
+xI2 = randi([11 20],100,1)
+
+TASK 7 
+Use rand to create a 100-by-1 vector of uniformly distributed random numbers between -1 and 1. Name the vector xU2
+xU2 = -1 + (1-(-1))*rand(100,1)
+
+TASK 8
+Use randn to create a 100-by-1 vector of normally distributed random numbers with mean 100 and standard deviation 5. Name the vector xN2.
+xN2 = 100 + 5*randn(100,1)
+
+Further Practice
+a = -12;
+b = -2;
+x = a + (b-a)*rand(1,1000);
+histogram(x)
+xlim([-25 25])
+title("Uniformly Distributed Random Numbers")
+
+M = 15;
+s = 11;
+x = M + s*randn(1,1000);
+histogram(x)
+xlim([0 50])
+title("Normally Distributed Random Numbers")
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
